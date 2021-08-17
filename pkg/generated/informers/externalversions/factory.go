@@ -23,9 +23,9 @@ import (
 	sync "sync"
 	time "time"
 
-	versioned "github.com/etcd-operator/pkg/generated/clientset/versioned"
-	etcd "github.com/etcd-operator/pkg/generated/informers/externalversions/etcd"
-	internalinterfaces "github.com/etcd-operator/pkg/generated/informers/externalversions/internalinterfaces"
+	versioned "github.com/gavinhot/etcd-operator/pkg/generated/clientset/versioned"
+	etcd "github.com/gavinhot/etcd-operator/pkg/generated/informers/externalversions/etcd"
+	internalinterfaces "github.com/gavinhot/etcd-operator/pkg/generated/informers/externalversions/internalinterfaces"
 	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	runtime "k8s.io/apimachinery/pkg/runtime"
 	schema "k8s.io/apimachinery/pkg/runtime/schema"

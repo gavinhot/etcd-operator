@@ -21,7 +21,7 @@ package versioned
 import (
 	"fmt"
 
-	etcdv1beta2 "github.com/etcd-operator/pkg/generated/clientset/versioned/typed/etcd/v1beta2"
+	etcdv1beta2 "github.com/gavinhot/etcd-operator/pkg/generated/clientset/versioned/typed/etcd/v1beta2"
 	discovery "k8s.io/client-go/discovery"
 	rest "k8s.io/client-go/rest"
 	flowcontrol "k8s.io/client-go/util/flowcontrol"

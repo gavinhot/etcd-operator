@@ -19,7 +19,7 @@ limitations under the License.
 package v1beta2
 
 import (
-	internalinterfaces "github.com/etcd-operator/pkg/generated/informers/externalversions/internalinterfaces"
+	internalinterfaces "github.com/gavinhot/etcd-operator/pkg/generated/informers/externalversions/internalinterfaces"
 )
 
 // Interface provides access to all the informers in this group version.

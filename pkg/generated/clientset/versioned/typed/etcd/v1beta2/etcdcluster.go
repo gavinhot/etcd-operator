@@ -22,8 +22,8 @@ import (
 	"context"
 	"time"
 
-	v1beta2 "github.com/etcd-operator/pkg/apis/etcd/v1beta2"
-	scheme "github.com/etcd-operator/pkg/generated/clientset/versioned/scheme"
+	v1beta2 "github.com/gavinhot/etcd-operator/pkg/apis/etcd/v1beta2"
+	scheme "github.com/gavinhot/etcd-operator/pkg/generated/clientset/versioned/scheme"
 	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	types "k8s.io/apimachinery/pkg/types"
 	watch "k8s.io/apimachinery/pkg/watch"
