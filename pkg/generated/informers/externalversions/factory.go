@@ -1,5 +1,5 @@
 /*
-Copyright 2019 The etcd-operator Authors
+Copyright The Kubernetes Authors.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -23,9 +23,9 @@ import (
 	sync "sync"
 	time "time"
 
-	versioned "github.com/coreos/etcd-operator/pkg/generated/clientset/versioned"
-	etcd "github.com/coreos/etcd-operator/pkg/generated/informers/externalversions/etcd"
-	internalinterfaces "github.com/coreos/etcd-operator/pkg/generated/informers/externalversions/internalinterfaces"
+	versioned "github.com/etcd-operator/pkg/generated/clientset/versioned"
+	etcd "github.com/etcd-operator/pkg/generated/informers/externalversions/etcd"
+	internalinterfaces "github.com/etcd-operator/pkg/generated/informers/externalversions/internalinterfaces"
 	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	runtime "k8s.io/apimachinery/pkg/runtime"
 	schema "k8s.io/apimachinery/pkg/runtime/schema"

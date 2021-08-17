@@ -1,5 +1,5 @@
 /*
-Copyright 2019 The etcd-operator Authors
+Copyright The Kubernetes Authors.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -19,15 +19,17 @@ limitations under the License.
 package v1beta2
 
 import (
-	v1beta2 "github.com/coreos/etcd-operator/pkg/apis/etcd/v1beta2"
+	v1beta2 "github.com/etcd-operator/pkg/apis/etcd/v1beta2"
 	"k8s.io/apimachinery/pkg/api/errors"
 	"k8s.io/apimachinery/pkg/labels"
 	"k8s.io/client-go/tools/cache"
 )
 
 // EtcdRestoreLister helps list EtcdRestores.
+// All objects returned here must be treated as read-only.
 type EtcdRestoreLister interface {
 	// List lists all EtcdRestores in the indexer.
+	// Objects returned here must be treated as read-only.
 	List(selector labels.Selector) (ret []*v1beta2.EtcdRestore, err error)
 	// EtcdRestores returns an object that can list and get EtcdRestores.
 	EtcdRestores(namespace string) EtcdRestoreNamespaceLister
@@ -58,10 +60,13 @@ func (s *etcdRestoreLister) EtcdRestores(namespace string) EtcdRestoreNamespaceL
 }
 
 // EtcdRestoreNamespaceLister helps list and get EtcdRestores.
+// All objects returned here must be treated as read-only.
 type EtcdRestoreNamespaceLister interface {
 	// List lists all EtcdRestores in the indexer for a given namespace.
+	// Objects returned here must be treated as read-only.
 	List(selector labels.Selector) (ret []*v1beta2.EtcdRestore, err error)
 	// Get retrieves the EtcdRestore from the indexer for a given namespace and name.
+	// Objects returned here must be treated as read-only.
 	Get(name string) (*v1beta2.EtcdRestore, error)
 	EtcdRestoreNamespaceListerExpansion
 }

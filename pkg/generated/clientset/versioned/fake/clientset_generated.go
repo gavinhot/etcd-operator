@@ -1,5 +1,5 @@
 /*
-Copyright 2019 The etcd-operator Authors
+Copyright The Kubernetes Authors.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -19,9 +19,9 @@ limitations under the License.
 package fake
 
 import (
-	clientset "github.com/coreos/etcd-operator/pkg/generated/clientset/versioned"
-	etcdv1beta2 "github.com/coreos/etcd-operator/pkg/generated/clientset/versioned/typed/etcd/v1beta2"
-	fakeetcdv1beta2 "github.com/coreos/etcd-operator/pkg/generated/clientset/versioned/typed/etcd/v1beta2/fake"
+	clientset "github.com/etcd-operator/pkg/generated/clientset/versioned"
+	etcdv1beta2 "github.com/etcd-operator/pkg/generated/clientset/versioned/typed/etcd/v1beta2"
+	fakeetcdv1beta2 "github.com/etcd-operator/pkg/generated/clientset/versioned/typed/etcd/v1beta2/fake"
 	"k8s.io/apimachinery/pkg/runtime"
 	"k8s.io/apimachinery/pkg/watch"
 	"k8s.io/client-go/discovery"
@@ -41,7 +41,7 @@ func NewSimpleClientset(objects ...runtime.Object) *Clientset {
 		}
 	}
 
-	cs := &Clientset{}
+	cs := &Clientset{tracker: o}
 	cs.discovery = &fakediscovery.FakeDiscovery{Fake: &cs.Fake}
 	cs.AddReactor("*", "*", testing.ObjectReaction(o))
 	cs.AddWatchReactor("*", func(action testing.Action) (handled bool, ret watch.Interface, err error) {
@@ -63,20 +63,20 @@ func NewSimpleClientset(objects ...runtime.Object) *Clientset {
 type Clientset struct {
 	testing.Fake
 	discovery *fakediscovery.FakeDiscovery
+	tracker   testing.ObjectTracker
 }
 
 func (c *Clientset) Discovery() discovery.DiscoveryInterface {
 	return c.discovery
 }
 
+func (c *Clientset) Tracker() testing.ObjectTracker {
+	return c.tracker
+}
+
 var _ clientset.Interface = &Clientset{}
 
 // EtcdV1beta2 retrieves the EtcdV1beta2Client
 func (c *Clientset) EtcdV1beta2() etcdv1beta2.EtcdV1beta2Interface {
-	return &fakeetcdv1beta2.FakeEtcdV1beta2{Fake: &c.Fake}
-}
-
-// Etcd retrieves the EtcdV1beta2Client
-func (c *Clientset) Etcd() etcdv1beta2.EtcdV1beta2Interface {
 	return &fakeetcdv1beta2.FakeEtcdV1beta2{Fake: &c.Fake}
 }

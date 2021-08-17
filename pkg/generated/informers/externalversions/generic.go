@@ -1,5 +1,5 @@
 /*
-Copyright 2019 The etcd-operator Authors
+Copyright The Kubernetes Authors.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -21,7 +21,7 @@ package externalversions
 import (
 	"fmt"
 
-	v1beta2 "github.com/coreos/etcd-operator/pkg/apis/etcd/v1beta2"
+	v1beta2 "github.com/etcd-operator/pkg/apis/etcd/v1beta2"
 	schema "k8s.io/apimachinery/pkg/runtime/schema"
 	cache "k8s.io/client-go/tools/cache"
 )
